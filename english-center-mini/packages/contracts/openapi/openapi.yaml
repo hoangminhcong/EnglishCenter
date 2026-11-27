@@ -1,0 +1,394 @@
+openapi: 3.1.0
+info:
+  title: English Center Unified REST API
+  version: 1.0.0
+  description: >
+    Hợp đồng API chuẩn hóa cho hệ thống English Center (Modular Monolith NestJS + PostgreSQL + Prisma).
+    Phục vụ đồng thời Client Web (Website công khai & Cổng học viên) và Staff Web (Quản trị & Vận hành nội bộ).
+    Múi giờ nghiệp vụ chuẩn: Asia/Ho_Chi_Minh. Đơn vị tiền tệ: số nguyên VND.
+servers:
+  - url: http://localhost:4000/api/v1
+    description: Local Development Server
+  - url: https://api.englishcenter.edu.vn/api/v1
+    description: Production Server
+
+tags:
+  - name: Auth
+    description: Xác thực phiên Học viên và Nhân sự nội bộ
+  - name: PublicCatalog
+    description: Cơ sở, Khóa học, Lịch khai giảng, Tin tức, Tuyển dụng, Thành tích & Tư vấn
+  - name: StudentPortal
+    description: Khóa học đã ghi danh, Kế hoạch học tập, BTVN, Điểm danh, Kết quả thi & Hỗ trợ học vụ
+  - name: StudyZone
+    description: Kho tự luyện Ngữ pháp, Từ vựng, Luyện nghe mở tự do
+  - name: TestOnline
+    description: Thi trực tuyến TOEIC có phiên bản đề (TestVersion) và bảo mật Answer Key trên Server
+  - name: StaffOperations
+    description: Quản trị Đào tạo, Tuyển sinh, Kế toán, Nhân sự & Hệ thống theo RBAC `module.action`
+
+paths:
+  /auth/login:
+    post:
+      tags: [Auth]
+      summary: Đăng nhập hợp nhất (Backend tự xác định Portal CLIENT hoặc STAFF dựa trên tài khoản)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [identifier, password]
+              properties:
+                identifier: { type: string }
+                password: { type: string, format: password }
+                rememberMe: { type: boolean }
+      responses:
+        '200': { description: Trả về phiên người dùng hợp nhất và Portal điều hướng (CLIENT / STAFF) }
+        '400': { $ref: '#/components/responses/BadRequestError' }
+        '401': { $ref: '#/components/responses/UnauthorizedError' }
+        '403': { $ref: '#/components/responses/ForbiddenError' }
+        '429': { $ref: '#/components/responses/TooManyRequestsError' }
+
+  /auth/register:
+    post:
+      tags: [Auth]
+      summary: Đăng ký tài khoản Học viên mới (cố định role = STUDENT, chưa tự xếp lớp)
+      responses:
+        '201': { description: Tạo tài khoản thành công }
+        '409': { $ref: '#/components/responses/ConflictError' }
+        '422': { $ref: '#/components/responses/ValidationError' }
+
+  /auth/me:
+    get:
+      tags: [Auth]
+      summary: Khôi phục phiên đăng nhập và quyền hiệu lực hiện tại (UnifiedAuthMeResponseDto)
+      responses:
+        '200': { description: Thông tin tài khoản, portal, role, permissions và scopes }
+        '401': { $ref: '#/components/responses/UnauthorizedError' }
+
+  /public/center-info:
+    get:
+      tags: [PublicCatalog]
+      summary: Thông tin thương hiệu, liên hệ và mạng xã hội của trung tâm
+      responses:
+        '200': { description: PublicCenterInfoDto }
+
+  /public/achievements:
+    get:
+      tags: [PublicCatalog]
+      summary: Danh sách bảng vàng vinh danh học viên đạt điểm cao đã có xác nhận Consent
+      responses:
+        '200': { description: Danh sách PublicAchievementDto }
+
+  /public/branches:
+    get:
+      tags: [PublicCatalog]
+      summary: Danh sách cơ sở đang hoạt động
+      parameters:
+        - in: query
+          name: scope
+          schema: { type: string, enum: [all-active, map, schedule] }
+      responses:
+        '200': { description: Danh sách BranchContractDto }
+
+  /public/courses:
+    get:
+      tags: [PublicCatalog]
+      summary: Danh sách khóa học công khai (status = active | paused)
+      parameters:
+        - in: query
+          name: featured
+          schema: { type: boolean }
+      responses:
+        '200': { description: Danh sách CourseCatalogContractDto }
+
+  /public/courses/{slug}:
+    get:
+      tags: [PublicCatalog]
+      summary: Chi tiết khóa học theo slug
+      parameters:
+        - in: path
+          name: slug
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: Chi tiết khóa học }
+        '404': { $ref: '#/components/responses/NotFoundError' }
+
+  /public/schedules:
+    get:
+      tags: [PublicCatalog]
+      summary: Lịch khai giảng công khai theo cơ sở, tháng, năm và khóa học
+      parameters:
+        - in: query
+          name: branchId
+          schema: { type: string }
+        - in: query
+          name: month
+          schema: { type: integer, minimum: 1, maximum: 12 }
+        - in: query
+          name: year
+          schema: { type: integer }
+        - in: query
+          name: courseId
+          schema: { type: string }
+      responses:
+        '200': { description: Danh sách lớp đang mở tuyển sinh }
+
+  /public/consultations:
+    post:
+      tags: [PublicCatalog]
+      summary: Gửi đăng ký nhận tư vấn khóa học / lịch khai giảng
+      responses:
+        '201': { description: Lưu hồ sơ tư vấn cho bộ phận Sale }
+        '422': { $ref: '#/components/responses/ValidationError' }
+        '429': { $ref: '#/components/responses/TooManyRequestsError' }
+
+  /students/me/portal-overview:
+    get:
+      tags: [StudentPortal]
+      summary: Dữ liệu tổng quan Cổng học viên của tài khoản đang đăng nhập
+      security:
+        - cookieAuth: []
+        - bearerAuth: []
+      responses:
+        '200': { description: Enrollment, Class, LearningPlan, Assignments, Attendance, ExamResults }
+        '401': { $ref: '#/components/responses/UnauthorizedError' }
+
+  /assignments/{assignmentId}/submissions:
+    post:
+      tags: [StudentPortal]
+      summary: Học viên nộp bài tập về nhà hoặc điểm Demo Test của lớp đang theo học
+      security:
+        - cookieAuth: []
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: assignmentId
+          required: true
+          schema: { type: string }
+      responses:
+        '201': { description: Ghi nhận bài nộp ở trạng thái chờ Giảng viên xác nhận }
+        '401': { $ref: '#/components/responses/UnauthorizedError' }
+        '403': { $ref: '#/components/responses/ForbiddenError' }
+        '422': { $ref: '#/components/responses/ValidationError' }
+
+  /public/study-zone/topics:
+    get:
+      tags: [StudyZone]
+      summary: Danh sách chuyên đề tự luyện theo kỹ năng (grammar | vocabulary | listening)
+      parameters:
+        - in: query
+          name: category
+          schema: { type: string, enum: [grammar, vocabulary, listening] }
+      responses:
+        '200': { description: Danh sách chủ đề tự luyện đã xuất bản }
+
+  /public/tests:
+    get:
+      tags: [TestOnline]
+      summary: Danh sách đề thi TOEIC đã xuất bản (ẩn hoàn toàn Answer Key)
+      responses:
+        '200': { description: Danh sách TestDefinition }
+
+  /public/test-attempts/start:
+    post:
+      tags: [TestOnline]
+      summary: Bắt đầu lượt thi TOEIC mới (chốt cứng testVersionId tại thời điểm bắt đầu)
+      responses:
+        '201': { description: Trả về TestAttempt kèm startedAt và deadlineAt chuẩn từ Server }
+        '400': { $ref: '#/components/responses/BadRequestError' }
+
+  /public/test-attempts/{attemptId}/progress:
+    patch:
+      tags: [TestOnline]
+      summary: Lưu tiến độ làm bài và trạng thái phát âm thanh 1 lần của phần Listening
+      parameters:
+        - in: path
+          name: attemptId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: Đã cập nhật tiến độ }
+        '403': { $ref: '#/components/responses/ForbiddenError' }
+        '409': { $ref: '#/components/responses/ConflictError' }
+
+  /public/test-attempts/{attemptId}/submit:
+    post:
+      tags: [TestOnline]
+      summary: Nộp bài thi TOEIC và chấm điểm trên Server theo TestVersion & ScoreScaleVersion
+      parameters:
+        - in: path
+          name: attemptId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: Kết quả chấm điểm LC/RC và lời giải chi tiết }
+        '403': { $ref: '#/components/responses/ForbiddenError' }
+        '409': { $ref: '#/components/responses/ConflictError' }
+
+  /public/test-history:
+    get:
+      tags: [TestOnline]
+      summary: Lịch sử làm bài TOEIC của người dùng hiện tại (phân trang, lọc & sắp xếp)
+      security:
+        - cookieAuth: []
+        - bearerAuth: []
+      parameters:
+        - { $ref: '#/components/parameters/PageParam' }
+        - { $ref: '#/components/parameters/LimitParam' }
+        - in: query
+          name: testSlug
+          schema: { type: string }
+        - in: query
+          name: status
+          schema: { type: string, enum: [all, in_progress, submitted, expired] }
+        - in: query
+          name: sortOrder
+          schema: { type: string, enum: [newest, oldest] }
+      responses:
+        '200': { description: Danh sách lượt thi thuộc quyền sở hữu của người dùng }
+        '401': { $ref: '#/components/responses/UnauthorizedError' }
+
+  /staff/dashboard/overview:
+    get:
+      tags: [StaffOperations]
+      summary: Tổng quan vận hành lọc theo Permission của nhân sự
+      security:
+        - cookieAuth: []
+        - bearerAuth: []
+      x-required-permission: dashboard.view
+      responses:
+        '200': { description: Chỉ số vận hành theo vai trò }
+        '401': { $ref: '#/components/responses/UnauthorizedError' }
+        '403': { $ref: '#/components/responses/ForbiddenError' }
+
+  /staff/courses:
+    get:
+      tags: [StaffOperations]
+      summary: Quản lý danh mục khóa học (bao gồm cả draft/paused/archived)
+      security: [{ cookieAuth: [] }, { bearerAuth: [] }]
+      x-required-permission: courses.view
+      parameters:
+        - { $ref: '#/components/parameters/PageParam' }
+        - { $ref: '#/components/parameters/LimitParam' }
+      responses:
+        '200': { description: Danh sách phân trang CourseCatalogContractDto }
+        '403': { $ref: '#/components/responses/ForbiddenError' }
+    post:
+      tags: [StaffOperations]
+      summary: Tạo mới chương trình khóa học
+      security: [{ cookieAuth: [] }, { bearerAuth: [] }]
+      x-required-permission: courses.create
+      responses:
+        '201': { description: Đã tạo khóa học }
+        '403': { $ref: '#/components/responses/ForbiddenError' }
+        '422': { $ref: '#/components/responses/ValidationError' }
+
+  /staff/accounting/payments:
+    post:
+      tags: [StaffOperations]
+      summary: Kế toán ghi nhận phiếu thu học phí cho khoản phải thu (Receivable)
+      security: [{ cookieAuth: [] }, { bearerAuth: [] }]
+      x-required-permission: payments.create
+      responses:
+        '201': { description: Tạo PaymentReceiptContractDto và cập nhật công nợ }
+        '403': { $ref: '#/components/responses/ForbiddenError' }
+        '409': { $ref: '#/components/responses/ConflictError' }
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: ec_session_token
+
+  parameters:
+    PageParam:
+      in: query
+      name: page
+      schema: { type: integer, minimum: 1, default: 1 }
+    LimitParam:
+      in: query
+      name: limit
+      schema: { type: integer, minimum: 1, maximum: 100, default: 20 }
+
+  schemas:
+    ApiErrorResponse:
+      type: object
+      required: [success, error]
+      properties:
+        success:
+          type: boolean
+          const: false
+        error:
+          type: object
+          required: [code, message]
+          properties:
+            code:
+              type: string
+              enum:
+                - BAD_REQUEST
+                - UNAUTHORIZED
+                - FORBIDDEN
+                - NOT_FOUND
+                - CONFLICT
+                - VALIDATION_ERROR
+                - TOO_MANY_REQUESTS
+                - INTERNAL_SERVER_ERROR
+            message:
+              type: string
+            details:
+              type: array
+              items:
+                type: object
+                required: [field, message]
+                properties:
+                  field: { type: string }
+                  message: { type: string }
+
+  responses:
+    BadRequestError:
+      description: 400 Bad Request – Tham số hoặc trạng thái yêu cầu không hợp lệ
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ApiErrorResponse' }
+    UnauthorizedError:
+      description: 401 Unauthorized – Chưa đăng nhập hoặc phiên đã hết hạn
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ApiErrorResponse' }
+    ForbiddenError:
+      description: 403 Forbidden – Không đủ quyền truy cập tài nguyên hoặc thiếu Permission
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ApiErrorResponse' }
+    NotFoundError:
+      description: 404 Not Found – Không tìm thấy bản ghi
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ApiErrorResponse' }
+    ConflictError:
+      description: 409 Conflict – Trùng dữ liệu định danh hoặc xung đột trạng thái nghiệp vụ
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ApiErrorResponse' }
+    ValidationError:
+      description: 422 Validation Error – Dữ liệu form vi phạm quy tắc kiểm tra từng trường
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ApiErrorResponse' }
+    TooManyRequestsError:
+      description: 429 Too Many Requests – Vượt giới hạn tần suất gửi yêu cầu
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ApiErrorResponse' }
+    InternalServerError:
+      description: 500 Internal Server Error – Lỗi xử lý nội bộ trên máy chủ
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ApiErrorResponse' }

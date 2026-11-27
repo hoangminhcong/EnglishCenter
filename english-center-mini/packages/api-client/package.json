@@ -1,0 +1,19 @@
+{
+  "name": "@english-center/api-client",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "lint": "oxlint -c ../../.oxlintrc.json src",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@english-center/contracts": "0.0.0"
+  },
+  "devDependencies": {
+    "typescript": "~7.0.2"
+  }
+}

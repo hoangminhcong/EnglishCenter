@@ -8,6 +8,7 @@
   },
   "scripts": {
     "dev": "node --env-file-if-exists=.env --watch --import tsx src/server.ts",
+    "db:migrate": "node --env-file-if-exists=.env --import tsx src/db/migrate.ts",
     "test": "node --env-file-if-exists=.env --import tsx --import ./tests/setup.ts --test \"tests/**/*.test.ts\"",
     "typecheck": "tsc --noEmit",
     "build": "tsc",

@@ -1,0 +1,37 @@
+{
+  "name": "english-center",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "workspaces": [
+    "apps/client-web",
+    "apps/staff-web",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev:client",
+    "dev:client": "npm run dev --workspace=@english-center/client-web",
+    "dev:staff": "npm run dev --workspace=@english-center/staff-web",
+    "build:client": "npm run build --workspace=@english-center/client-web",
+    "build:staff": "npm run build --workspace=@english-center/staff-web",
+    "build": "npm run build:client && npm run build:staff",
+    "lint:packages": "oxlint -c .oxlintrc.json packages",
+    "lint:client": "npm run lint --workspace=@english-center/client-web",
+    "lint:staff": "npm run lint --workspace=@english-center/staff-web",
+    "lint": "npm run lint:packages && npm run lint:client && npm run lint:staff",
+    "typecheck:packages": "npm run typecheck --workspace=@english-center/utils && npm run typecheck --workspace=@english-center/contracts && npm run typecheck --workspace=@english-center/api-client && npm run typecheck --workspace=@english-center/ui",
+    "typecheck:client": "npm run typecheck --workspace=@english-center/client-web",
+    "typecheck:staff": "npm run typecheck --workspace=@english-center/staff-web",
+    "typecheck": "npm run typecheck:packages && npm run typecheck:client && npm run typecheck:staff",
+    "test:client": "npm run test --workspace=@english-center/client-web",
+    "test:staff": "npm run test --workspace=@english-center/staff-web",
+    "test": "npm run test:client && npm run test:staff",
+    "preview:client": "npm run preview --workspace=@english-center/client-web",
+    "preview:staff": "npm run preview --workspace=@english-center/staff-web"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "oxlint": "^1.90.0",
+    "typescript": "~7.0.2"
+  }
+}
