@@ -4,7 +4,7 @@ Bộ khung Express + TypeScript cho dự án quản lý trung tâm tiếng Anh. 
 
 ## Chạy tại máy
 
-Dùng Node.js 24 trở lên. Từ thư mục `english-center-api`, chạy:
+Dùng Node.js 24 trở lên. Từ thư mục `backend`, chạy:
 
 ```sh
 npm ci

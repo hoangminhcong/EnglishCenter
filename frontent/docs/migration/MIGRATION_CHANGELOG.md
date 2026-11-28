@@ -12,7 +12,7 @@ Tài liệu này ghi lại theo trình tự thời gian toàn bộ các thay đ�
 
 ## 2. GIAI ĐOẠN 0 & 1 – BASELINE AUDIT & KẾ HOẠCH DI CHUYỂN
 - Ghi nhận Baseline trên `179` files gốc (`react@19.3.1`, `vite@8.3.8`, `typescript@7.0.2`, `tailwindcss@4.3.5`, `oxlint@1.94.0`).
-- Lập bản đồ di chuyển chi tiết cho toàn bộ dự án tại [MIGRATION_MAP.md](file:///d:/Web/english-center-mini/docs/migration/MIGRATION_MAP.md).
+- Lập bản đồ di chuyển chi tiết cho toàn bộ dự án tại [MIGRATION_MAP.md](MIGRATION_MAP.md).
 
 ## 3. GIAI ĐOẠN 2 – DI CHUYỂN `apps/client-web`
 - Khởi tạo npm Workspaces tại `package.json` gốc và cấu hình kế thừa `tsconfig.base.json`.

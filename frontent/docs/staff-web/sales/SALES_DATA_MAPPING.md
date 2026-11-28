@@ -7,9 +7,9 @@ Tài liệu này ghi nhận kết quả đối chiếu trực tiếp giữa modu
 ## 1. BẢNG ÁNH XẠ `CreateConsultationRequest` (`client-web`) ↔ `SalesLeadDto` (`staff-web`)
 
 Nguồn kiểm tra trên Client Web:
-- [`apps/client-web/src/features/consultation/types.ts`](file:///d:/Web/english-center-mini/apps/client-web/src/features/consultation/types.ts)
-- [`apps/client-web/src/features/consultation/components/ConsultationForm.tsx`](file:///d:/Web/english-center-mini/apps/client-web/src/features/consultation/components/ConsultationForm.tsx) (`footer-form`)
-- [`apps/client-web/src/features/schedules/components/ConsultationModal.tsx`](file:///d:/Web/english-center-mini/apps/client-web/src/features/schedules/components/ConsultationModal.tsx) (`schedule-modal`)
+- [`apps/client-web/src/features/consultation/types.ts`](../../../apps/client-web/src/features/consultation/types.ts)
+- [`apps/client-web/src/features/consultation/components/ConsultationForm.tsx`](../../../apps/client-web/src/features/consultation/components/ConsultationForm.tsx) (`footer-form`)
+- [`apps/client-web/src/features/schedules/components/ConsultationModal.tsx`](../../../apps/client-web/src/features/schedules/components/ConsultationModal.tsx) (`schedule-modal`)
 
 | Trường `CreateConsultationRequest` (`client-web`) | Trường `SalesLeadDto` (`@english-center/contracts`) | Trạng thái & Quy tắc đồng bộ khi nối Backend |
 | :--- | :--- | :--- |

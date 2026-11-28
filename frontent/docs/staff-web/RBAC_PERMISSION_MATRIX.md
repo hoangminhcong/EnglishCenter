@@ -21,7 +21,7 @@
 
 ## 3. Ma trận Nhóm Quyền Theo 7 Vai trò Hệ thống Mặc định
 
-Nguồn cấu hình chuẩn: [`permissions.config.ts`](file:///d:/Web/english-center-mini/apps/staff-web/src/services/permissions/permissions.config.ts).
+Nguồn cấu hình chuẩn: [`permissions.config.ts`](../../apps/staff-web/src/services/permissions/permissions.config.ts).
 
 | Nhóm chức năng / Mã quyền tiêu biểu | `ADMIN` | `SALES` | `ACCOUNTANT` | `ACADEMIC` | `TEACHER` | `HR_ACADEMIC` | `HR` |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -40,5 +40,5 @@ Nguồn cấu hình chuẩn: [`permissions.config.ts`](file:///d:/Web/english-ce
 
 ## 4. Quản trị Động Ma trận Quyền & Nhật ký Kiểm toán (`Audit Log`)
 
-- Trang `/accounts/roles` ([`RolesPage.tsx`](file:///d:/Web/english-center-mini/apps/staff-web/src/features/accounts/pages/RolesPage.tsx)) cho phép tài khoản có `roles.update` điều chỉnh danh sách quyền của từng vai trò kèm lý do bắt buộc (`ROLE_PERMISSIONS_UPDATED`).
+- Trang `/accounts/roles` ([`RolesPage.tsx`](../../apps/staff-web/src/features/accounts/pages/RolesPage.tsx)) cho phép tài khoản có `roles.update` điều chỉnh danh sách quyền của từng vai trò kèm lý do bắt buộc (`ROLE_PERMISSIONS_UPDATED`).
 - Hệ thống chặn tự gỡ `roles.view` / `roles.update` trên vai trò quản trị duy nhất của người đang thao tác để bảo vệ tính liên tục vận hành mà không cần khóa cứng tên vai trò `ADMIN`.

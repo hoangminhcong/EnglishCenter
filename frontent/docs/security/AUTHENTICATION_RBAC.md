@@ -18,7 +18,7 @@ Tài liệu này quy định cơ chế xác thực (Authentication), phân quy�
 
 ## 2. MÔ HÌNH RBAC `MODULE.ACTION` TRÊN `apps/staff-web`
 
-- Nguồn định nghĩa chuẩn: [`packages/contracts/src/auth/rbac.types.ts`](file:///d:/Web/english-center-mini/packages/contracts/src/auth/rbac.types.ts) và [`apps/staff-web/src/services/permissions/permissions.config.ts`](file:///d:/Web/english-center-mini/apps/staff-web/src/services/permissions/permissions.config.ts).
+- Nguồn định nghĩa chuẩn: [`packages/contracts/src/auth/rbac.types.ts`](../../packages/contracts/src/auth/rbac.types.ts) và [`apps/staff-web/src/services/permissions/permissions.config.ts`](../../apps/staff-web/src/services/permissions/permissions.config.ts).
 - **6 vai trò nội bộ (`StaffRole`):**
   1. `ADMIN` — Toàn quyền quản trị hệ thống, nhân sự, tài chính và đào tạo.
   2. `ACCOUNTANT` — Quản lý học phí, khoản phải thu (`payments.view`, `payments.create`, `payments.refund`), xem báo cáo tài chính.

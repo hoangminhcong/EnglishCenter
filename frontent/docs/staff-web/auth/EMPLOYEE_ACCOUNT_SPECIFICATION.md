@@ -2,7 +2,7 @@
 
 ## 1. Trạng thái Triển khai
 
-- **Giao diện & Luồng thao tác Frontend (`/accounts`, `/accounts/roles`):** **Đã triển khai** tại [`AccountsPage.tsx`](file:///d:/Web/english-center-mini/apps/staff-web/src/features/accounts/pages/AccountsPage.tsx), [`RolesPage.tsx`](file:///d:/Web/english-center-mini/apps/staff-web/src/features/accounts/pages/RolesPage.tsx) và [`accountsApi.ts`](file:///d:/Web/english-center-mini/apps/staff-web/src/features/accounts/api/accountsApi.ts).
+- **Giao diện & Luồng thao tác Frontend (`/accounts`, `/accounts/roles`):** **Đã triển khai** tại [`AccountsPage.tsx`](../../../apps/staff-web/src/features/accounts/pages/AccountsPage.tsx), [`RolesPage.tsx`](../../../apps/staff-web/src/features/accounts/pages/RolesPage.tsx) và [`accountsApi.ts`](../../../apps/staff-web/src/features/accounts/api/accountsApi.ts).
 - **Lưu trữ & Gửi Email kích hoạt thực tế:** Đang chạy **Mock State** (ghi nhận trung thực trạng thái `PENDING_ACTIVATION`, không giả lập gửi email SMTP thật khi chưa có Backend).
 
 ---

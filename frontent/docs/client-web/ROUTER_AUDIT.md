@@ -1,6 +1,6 @@
 # BÁO CÁO KIỂM TOÁN HỆ THỐNG ĐỊNH TUYẾN (ROUTER AUDIT)
 
-Tài liệu này kiểm tra toàn bộ cây định tuyến tại [router.tsx](file:///d:/Web/english-center-mini/src/app/router.tsx), đảm bảo **mỗi màn hình chức năng chỉ có một đường dẫn chính tắc (Canonical Route)**, gắn đúng Layout và đúng cơ chế bảo vệ quyền truy cập (`ProtectedRoute`).
+Tài liệu này kiểm tra toàn bộ cây định tuyến tại [router.tsx](../../apps/client-web/src/app/router/index.tsx), đảm bảo **mỗi màn hình chức năng chỉ có một đường dẫn chính tắc (Canonical Route)**, gắn đúng Layout và đúng cơ chế bảo vệ quyền truy cập (`ProtectedRoute`).
 
 ---
 

@@ -34,6 +34,6 @@ VITE_STAFF_USE_MOCK=false
 ```
 
 Khi `VITE_STAFF_USE_MOCK=false`:
-- `authService` tự động chuyển sang [`httpAuthAdapter.ts`](file:///d:/Web/english-center-mini/apps/staff-web/src/features/auth/repositories/httpAuthAdapter.ts).
+- `authService` tự động chuyển sang [`httpAuthAdapter.ts`](../../apps/staff-web/src/features/auth/adapters/httpAuthAdapter.ts).
 - Khối gợi ý tài khoản Demo (`getDevMockHints()`) tự động ẩn hoàn toàn khỏi màn hình `/login`.
 - Toàn bộ `StaffAuthProvider`, `StaffLoginPage`, `AccountsPage`, `RolesPage`, `StaffSidebar` và `Router` giữ nguyên 100% không phải viết lại.

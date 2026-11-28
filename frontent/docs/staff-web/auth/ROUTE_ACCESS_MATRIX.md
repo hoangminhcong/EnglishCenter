@@ -2,7 +2,7 @@
 
 ## 1. Staff Web (`apps/staff-web`)
 
-Nguồn cấu hình: [`navigation.config.ts`](file:///d:/Web/english-center-mini/apps/staff-web/src/services/permissions/navigation.config.ts) & [`router/index.tsx`](file:///d:/Web/english-center-mini/apps/staff-web/src/app/router/index.tsx).
+Nguồn cấu hình: [`navigation.config.ts`](../../../apps/staff-web/src/services/permissions/navigation.config.ts) & [`router/index.tsx`](../../../apps/staff-web/src/app/router/index.tsx).
 Mọi route bên dưới đều nằm sau `<AuthGuard>` (`accountType === 'STAFF' && portal === 'STAFF'`) và `<PermissionGuard>` (trả trang `403 – Forbidden` nếu thiếu quyền, không tự ý mở module khác).
 
 | Đường dẫn (`Path`) | Nhóm giao diện | `requiredPermissions` | Role được phép truy cập | Hành vi khi không đủ quyền |

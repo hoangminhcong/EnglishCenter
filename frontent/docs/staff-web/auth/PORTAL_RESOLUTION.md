@@ -24,8 +24,8 @@ Cả hai ứng dụng khai báo thống nhất trong `.env.example`:
 
 ### Thực thi Allowlist tại Frontend
 - Tệp thực thi:
-  - Staff Web: [`apps/staff-web/src/services/portal/portalResolver.ts`](file:///d:/Web/english-center-mini/apps/staff-web/src/services/portal/portalResolver.ts)
-  - Client Web: [`apps/client-web/src/services/portal/portalResolver.ts`](file:///d:/Web/english-center-mini/apps/client-web/src/services/portal/portalResolver.ts)
+  - Staff Web: [`apps/staff-web/src/services/portal/portalResolver.ts`](../../../apps/staff-web/src/services/portal/portalResolver.ts)
+  - Client Web: [`apps/client-web/src/services/portal/portalResolver.ts`](../../../apps/client-web/src/services/portal/portalResolver.ts)
 - **Quy tắc an toàn:**
   1. Chỉ trích xuất tập `origin` hợp lệ từ `CLIENT_APP_URL` và `STAFF_APP_URL` cấu hình trong biến môi trường.
   2. Không bao giờ đọc tham số `?redirect=...` tùy ý trên thanh địa chỉ hoặc điều hướng đến một `redirectUrl` lạ ngoài Allowlist.

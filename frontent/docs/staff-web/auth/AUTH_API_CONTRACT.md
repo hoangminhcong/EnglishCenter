@@ -1,6 +1,6 @@
 # HỢP ĐỒNG API XÁC THỰC & QUẢN LÝ TÀI KHOẢN (`AUTH_API_CONTRACT`)
 
-> **Trạng thái:** Hợp đồng API dự kiến tại [`packages/contracts`](file:///d:/Web/english-center-mini/packages/contracts/src/index.ts) và [`endpoints.ts`](file:///d:/Web/english-center-mini/apps/staff-web/src/services/api/endpoints.ts). **Chưa xây dựng API Server / Database trong phạm vi nhiệm vụ này.**
+> **Trạng thái:** Hợp đồng API dự kiến tại [`packages/contracts`](../../../packages/contracts/src/index.ts) và [`endpoints.ts`](../../../apps/staff-web/src/services/api/endpoints.ts). **Chưa xây dựng API Server / Database trong phạm vi nhiệm vụ này.**
 
 ---
 

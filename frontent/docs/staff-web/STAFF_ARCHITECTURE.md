@@ -32,7 +32,7 @@ flowchart TD
    - Khóa Mock Store riêng: `ec_staff_mock_*`.
    - `staffQueryClient` tách rời, tự động xóa sạch cache khi `logout()` hoặc gặp lỗi `401 Unauthorized`.
 3. **Không cài thêm thư viện ngoài:**
-   - Biểu đồ thống kê: Xây dựng bằng `<svg>` thuần có `<title>` hỗ trợ tiếp cận tại [`SvgCharts.tsx`](file:///d:/Web/english-center-mini/apps/staff-web/src/shared/components/SvgCharts.tsx).
+   - Biểu đồ thống kê: Xây dựng bằng `<svg>` thuần có `<title>` hỗ trợ tiếp cận tại [`SvgCharts.tsx`](../../apps/staff-web/src/shared/components/SvgCharts.tsx).
    - Soạn thảo bài viết CMS: Trình biên tập khối có cấu trúc (`heading`, `paragraph`, `list`, `image`, `link` kiểm tra qua `toSafeHttpUrl`), tuyệt đối không dùng `dangerouslySetInnerHTML`.
    - Sắp xếp thứ tự khối/nhóm/câu hỏi: Điều khiển trực quan bằng nút `↑` / `↓`.
 

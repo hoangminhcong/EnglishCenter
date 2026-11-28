@@ -26,10 +26,10 @@ Tài liệu này mô tả kiến trúc nghiệp vụ của phân hệ **Ngân h�
 
 ## 2. TÁCH BIỆT `ANSWER KEY` & BẢO MẬT ĐỀ THI
 
-Trong [`testAuthoring.types.ts`](file:///d:/Web/english-center-mini/apps/staff-web/src/features/learning/types/testAuthoring.types.ts):
+Trong [`testAuthoring.types.ts`](../../apps/staff-web/src/features/learning/types/testAuthoring.types.ts):
 - Thực thể `AuthoringQuestion` **chỉ chứa dữ liệu hiển thị cho thí sinh** (`questionNumber`, `partNumber`, `groupId`, `questionText`, `audioUrl`, `imageUrl`, `options`, `displayOrder`).
 - Đáp án đúng và lời giải được lưu riêng trong bản đồ `answerKeys: Record<questionId, AuthoringAnswerKey>` (`correctOptionId`, `explanation`, `transcript`, `translation`).
-- Hàm `projectPublicStudentTestPayload(record)` trong [`testAuthoringApi.ts`](file:///d:/Web/english-center-mini/apps/staff-web/src/features/learning/api/testAuthoringApi.ts) tách bỏ hoàn toàn `answerKeys` trước khi truyền dữ liệu vào `TestPreviewModal` — mô phỏng chính xác API công khai `GET /api/v1/tests/:slug/exam-paper` khi nối Backend.
+- Hàm `projectPublicStudentTestPayload(record)` trong [`testAuthoringApi.ts`](../../apps/staff-web/src/features/learning/api/testAuthoringApi.ts) tách bỏ hoàn toàn `answerKeys` trước khi truyền dữ liệu vào `TestPreviewModal` — mô phỏng chính xác API công khai `GET /api/v1/tests/:slug/exam-paper` khi nối Backend.
 
 ---
 
@@ -62,6 +62,6 @@ Hàm `validateTestBeforePublish()` phân tách rõ 2 mức độ:
 
 ## 5. CƠ CHẾ XEM THỬ ĐỀ ĐỘC LẬP (`TestPreviewModal`)
 
-Sử dụng phương án **Standalone Preview Component ngay trong `apps/staff-web`** ([`TestPreviewModal.tsx`](file:///d:/Web/english-center-mini/apps/staff-web/src/features/learning/components/TestPreviewModal.tsx)):
+Sử dụng phương án **Standalone Preview Component ngay trong `apps/staff-web`** ([`TestPreviewModal.tsx`](../../apps/staff-web/src/features/learning/components/TestPreviewModal.tsx)):
 - Không import chéo component nội bộ của `apps/client-web`, giữ ranh giới biên dịch độc lập giữa 2 app.
 - Cho phép Admin/QA kiểm tra giao diện từng Part 1–7, nghe/tua kiểm tra tệp âm thanh, bấm chọn đáp án thử, duyệt bảng `Question Navigator` và bật/tắt chế độ đối chiếu `AnswerKey` dành riêng cho QA.

@@ -1,6 +1,6 @@
 # BÁO CÁO KIỂM TOÁN TOÀN DIỆN FRONTEND – ENGLISH CENTER
 
-- **Dự án:** English Center (`english-center-mini`)
+- **Dự án:** English Center (`frontent`)
 - **Phạm vi kiểm toán:** Public Website, Student Portal, Study Zone, Test Online TOEIC, Hệ thống màu sắc & thương hiệu, Đồng bộ nguồn dữ liệu (Single Source of Truth), Responsive, Bảo mật Client-side & Khả năng sẵn sàng tích hợp Backend Node.js.
 - **Ngày hoàn tất:** 24/11/2026
 

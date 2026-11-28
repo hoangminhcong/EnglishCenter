@@ -2,7 +2,7 @@
 
 ## 1. Nguyên tắc Phân quyền Cố định
 
-1. **Cố định tuyệt đối trong mã nguồn:** Định nghĩa tại [`FIXED_ROLE_PERMISSIONS`](file:///d:/Web/english-center-mini/apps/staff-web/src/services/permissions/permissions.config.ts). Admin **không** có giao diện hay API để thêm, xóa, sửa Permission hoặc chỉnh sửa bộ quyền của Role.
+1. **Cố định tuyệt đối trong mã nguồn:** Định nghĩa tại [`FIXED_ROLE_PERMISSIONS`](../../../apps/staff-web/src/services/permissions/permissions.config.ts). Admin **không** có giao diện hay API để thêm, xóa, sửa Permission hoặc chỉnh sửa bộ quyền của Role.
 2. **Trang `/accounts/roles` ở chế độ Chỉ đọc (`Read-Only`):** Chỉ dùng để tra cứu minh bạch mỗi Role cố định bao gồm những Permission nào.
 3. **Không cấp `ADMIN = ALL_PERMISSIONS`:** Tài khoản `ADMIN` chỉ có quyền quản trị hệ thống, tài khoản, khóa học, học phí, CMS, học liệu/TOEIC và báo cáo giám sát; không tự động thấy giao diện tác nghiệp riêng của Sale, Kế toán, Giáo vụ hay Giảng viên.
 4. **Nguồn quyết định cuối cùng:** Khi kết nối Backend Node.js, Server trả danh sách `permissions` và `scopes` hiệu lực qua `GET /api/v1/auth/me` và kiểm tra lại trên từng API.

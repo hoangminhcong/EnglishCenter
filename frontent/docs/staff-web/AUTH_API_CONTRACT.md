@@ -1,6 +1,6 @@
 # HỢP ĐỒNG API XÁC THỰC, TÀI KHOẢN NHÂN SỰ & PHÂN QUYỀN (`AUTH_API_CONTRACT`)
 
-Tài liệu này đặc tả hợp đồng REST API `/api/v1/*` mà [`httpAuthAdapter.ts`](file:///d:/Web/english-center-mini/apps/staff-web/src/features/auth/repositories/httpAuthAdapter.ts), [`accountsApi.ts`](file:///d:/Web/english-center-mini/apps/staff-web/src/features/accounts/api/accountsApi.ts) và [`endpoints.ts`](file:///d:/Web/english-center-mini/apps/staff-web/src/services/api/endpoints.ts) đã định nghĩa sẵn để kết nối Backend Node.js.
+Tài liệu này đặc tả hợp đồng REST API `/api/v1/*` mà [`httpAuthAdapter.ts`](../../apps/staff-web/src/features/auth/adapters/httpAuthAdapter.ts), [`accountsApi.ts`](../../apps/staff-web/src/features/accounts/api/accountsApi.ts) và [`endpoints.ts`](../../apps/staff-web/src/services/api/endpoints.ts) đã định nghĩa sẵn để kết nối Backend Node.js.
 
 ---
 

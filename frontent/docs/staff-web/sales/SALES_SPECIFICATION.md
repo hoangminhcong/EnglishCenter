@@ -2,7 +2,7 @@
 
 - **Ứng dụng:** `apps/staff-web` (`@english-center/staff-web`)
 - **Định tuyến Sales CRM:** `/sales/dashboard`, `/sales/leads/:leadId`, `/sales/courses`, `/sales/courses/:courseId`, `/sales/registrations/new`, `/sales/registrations`, `/sales/registrations/:id`
-- **Hợp đồng kiểu dữ liệu tập trung:** [`packages/contracts/src/sales/sales.types.ts`](file:///d:/Web/english-center-mini/packages/contracts/src/sales/sales.types.ts)
+- **Hợp đồng kiểu dữ liệu tập trung:** [`packages/contracts/src/sales/sales.types.ts`](../../../packages/contracts/src/sales/sales.types.ts)
 
 ---
 

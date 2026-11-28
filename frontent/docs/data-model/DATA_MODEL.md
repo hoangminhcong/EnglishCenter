@@ -1,6 +1,6 @@
 # MÔ HÌNH DỮ LIỆU NGHIỆP VỤ CHUẨN HÓA (`DATA_MODEL`)
 
-Tài liệu này định nghĩa ranh giới thực thể nghiệp vụ chính thức của hệ thống **English Center**, đồng bộ trực tiếp với gói [`@english-center/contracts`](file:///d:/Web/english-center-mini/packages/contracts/src/entities/core.types.ts) và phục vụ thiết kế lược đồ PostgreSQL / Prisma tại `apps/backend`.
+Tài liệu này định nghĩa ranh giới thực thể nghiệp vụ chính thức của hệ thống **English Center**, đồng bộ trực tiếp với gói [`@english-center/contracts`](../../packages/contracts/src/entities/core.types.ts) và phục vụ thiết kế lược đồ PostgreSQL / Prisma tại `apps/backend`.
 
 ---
 

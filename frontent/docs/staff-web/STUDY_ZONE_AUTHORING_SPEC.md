@@ -31,7 +31,7 @@ Trên `apps/client-web`, khu vực tự học Study Zone sử dụng 3 đường
 
 ## 3. LUỒNG SOẠN THẢO, KIỂM ĐỊNH & XEM THỬ
 
-Tại màn hình [`StudyZoneExerciseEditorPage.tsx`](file:///d:/Web/english-center-mini/apps/staff-web/src/features/learning/pages/StudyZoneExerciseEditorPage.tsx):
+Tại màn hình [`StudyZoneExerciseEditorPage.tsx`](../../apps/staff-web/src/features/learning/pages/StudyZoneExerciseEditorPage.tsx):
 - **Thao tác biên tập câu hỏi:** Thêm mới, chỉnh sửa, nhân bản câu hỏi (`Duplicate`), sắp xếp thứ tự bằng nút `↑` / `↓` (tự động đánh lại `displayOrder`), xóa câu hỏi, đính kèm hình ảnh hoặc tạo âm thanh mẫu WAV ngoại tuyến qua `MediaUploadBox`.
 - **Kiểm định trước xuất bản (`validateStudyExerciseForPublish`):**
   - Chặn xuất bản nếu bài tập có `0` câu hỏi.

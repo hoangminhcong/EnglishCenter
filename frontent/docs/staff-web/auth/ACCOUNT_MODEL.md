@@ -1,6 +1,6 @@
 # MÔ HÌNH DỮ LIỆU TÀI KHOẢN, HỒ SƠ & VAI TRÒ (`ACCOUNT_MODEL`)
 
-Nguồn chuẩn dùng chung hai ứng dụng: [`packages/contracts/src/auth/rbac.types.ts`](file:///d:/Web/english-center-mini/packages/contracts/src/auth/rbac.types.ts) và [`packages/contracts/src/auth/authSession.types.ts`](file:///d:/Web/english-center-mini/packages/contracts/src/auth/authSession.types.ts).
+Nguồn chuẩn dùng chung hai ứng dụng: [`packages/contracts/src/auth/rbac.types.ts`](../../../packages/contracts/src/auth/rbac.types.ts) và [`packages/contracts/src/auth/authSession.types.ts`](../../../packages/contracts/src/auth/authSession.types.ts).
 
 ---
 

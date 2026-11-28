@@ -24,13 +24,13 @@ flowchart TD
 
 ### Các tệp thành phần cốt lõi
 1. **Contracts dùng chung (`packages/contracts`):**
-   - [`authSession.types.ts`](file:///d:/Web/english-center-mini/packages/contracts/src/auth/authSession.types.ts): Định nghĩa `StaffUserAccountDto`, `StaffEmployeeProfileDto`, `UserRoleAssignmentDto`, `AuthenticatedStaffSessionDto`, `StaffLoginOutcomeDto`, `AccountPermissionAuditLogDto`.
-   - [`rbac.types.ts`](file:///d:/Web/english-center-mini/packages/contracts/src/auth/rbac.types.ts): Danh mục chuẩn `STAFF_ROLES` (7 vai trò) và `PERMISSION_CODES` (92+ mã quyền `resource.action`).
+   - [`authSession.types.ts`](../../packages/contracts/src/auth/authSession.types.ts): Định nghĩa `StaffUserAccountDto`, `StaffEmployeeProfileDto`, `UserRoleAssignmentDto`, `AuthenticatedStaffSessionDto`, `StaffLoginOutcomeDto`, `AccountPermissionAuditLogDto`.
+   - [`rbac.types.ts`](../../packages/contracts/src/auth/rbac.types.ts): Danh mục chuẩn `STAFF_ROLES` (7 vai trò) và `PERMISSION_CODES` (92+ mã quyền `resource.action`).
 2. **Auth Adapters & Token Manager (`apps/staff-web/src/features/auth/`):**
-   - [`authRepository.ts`](file:///d:/Web/english-center-mini/apps/staff-web/src/features/auth/repositories/authRepository.ts): Hợp đồng `login`, `completeFirstLoginPassword`, `getMe`, `logout`, `refreshSession`.
-   - [`mockAuthAdapter.ts`](file:///d:/Web/english-center-mini/apps/staff-web/src/features/auth/repositories/mockAuthAdapter.ts): Xác thực định danh (`username` hoặc `email`), đối chiếu hàm băm một chiều SHA-256, kiểm tra 5 trạng thái vòng đời tài khoản và tổng hợp phiên `/auth/me`.
-   - [`httpAuthAdapter.ts`](file:///d:/Web/english-center-mini/apps/staff-web/src/features/auth/repositories/httpAuthAdapter.ts): Kết nối REST `/api/v1/auth/login`, `/api/v1/auth/me`, `/api/v1/auth/logout`, `/api/v1/auth/refresh` với `credentials: 'include'`.
-   - [`sessionTokenManager.ts`](file:///d:/Web/english-center-mini/apps/staff-web/src/features/auth/services/sessionTokenManager.ts): Chỉ giữ `accessToken` trong bộ nhớ RAM (nếu Backend trả Bearer token), ưu tiên `HttpOnly Secure Cookie` do Backend quản lý; tuyệt đối không lưu JWT nhạy cảm hay mật khẩu vào `localStorage`.
+   - [`authRepository.ts`](../../apps/staff-web/src/features/auth/repositories/authRepository.ts): Hợp đồng `login`, `completeFirstLoginPassword`, `getMe`, `logout`, `refreshSession`.
+   - [`mockAuthAdapter.ts`](../../apps/staff-web/src/features/auth/adapters/mockAuthAdapter.ts): Xác thực định danh (`username` hoặc `email`), đối chiếu hàm băm một chiều SHA-256, kiểm tra 5 trạng thái vòng đời tài khoản và tổng hợp phiên `/auth/me`.
+   - [`httpAuthAdapter.ts`](../../apps/staff-web/src/features/auth/adapters/httpAuthAdapter.ts): Kết nối REST `/api/v1/auth/login`, `/api/v1/auth/me`, `/api/v1/auth/logout`, `/api/v1/auth/refresh` với `credentials: 'include'`.
+   - [`sessionTokenManager.ts`](../../apps/staff-web/src/features/auth/services/sessionTokenManager.ts): Chỉ giữ `accessToken` trong bộ nhớ RAM (nếu Backend trả Bearer token), ưu tiên `HttpOnly Secure Cookie` do Backend quản lý; tuyệt đối không lưu JWT nhạy cảm hay mật khẩu vào `localStorage`.
 
 ---
 

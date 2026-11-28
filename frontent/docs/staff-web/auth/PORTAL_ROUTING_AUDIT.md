@@ -20,8 +20,8 @@
 - **Hệ quả thực tế hiện nay:**
   1. Nếu nhân sự (`admin.demo`, `sale.demo`, `teacher.demo`...) đăng nhập tại `client-web` (`http://localhost:5173/login`), `client-web` **tự tạo phiên Học viên giả** thay vì phát hiện `portal === 'STAFF'` và điều hướng sang `http://localhost:5174`.
   2. Nếu học viên (`student.demo`) đăng nhập tại `staff-web` (`http://localhost:5174/login`), `staff-web` báo lỗi sai mật khẩu thay vì xác định `accountType === 'STUDENT'`, `portal === 'CLIENT'`, từ chối mở giao diện `staff-web` và điều hướng an toàn sang `http://localhost:5173`.
-  3. Tại `client-web` [`StudentLayout.tsx#L55`](file:///d:/Web/english-center-mini/apps/client-web/src/layouts/StudentLayout.tsx#L55), chỉ kiểm tra `if (!isAuthenticated || !user)` mà chưa kiểm tra `user.accountType === 'STUDENT' && user.portal === 'CLIENT'`.
-  4. Tại `client-web` [`AuthPage.tsx#L64-L70`](file:///d:/Web/english-center-mini/apps/client-web/src/features/auth/pages/AuthPage.tsx#L64-L70), `redirectPath = location.state?.from || '/'` chưa kiểm tra đường dẫn nội bộ hợp lệ (chống open-redirect dạng `//evil.com` hoặc `https://...`) và khi học viên đăng nhập trực tiếp tại `/login` đang đưa về `'/'` thay vì `defaultLandingRoute` (`/student/dashboard`).
+  3. Tại `client-web` [`StudentLayout.tsx#L55`](../../../apps/client-web/src/layouts/StudentLayout.tsx#L55), chỉ kiểm tra `if (!isAuthenticated || !user)` mà chưa kiểm tra `user.accountType === 'STUDENT' && user.portal === 'CLIENT'`.
+  4. Tại `client-web` [`AuthPage.tsx#L64-L70`](../../../apps/client-web/src/features/auth/pages/AuthPage.tsx#L64-L70), `redirectPath = location.state?.from || '/'` chưa kiểm tra đường dẫn nội bộ hợp lệ (chống open-redirect dạng `//evil.com` hoặc `https://...`) và khi học viên đăng nhập trực tiếp tại `/login` đang đưa về `'/'` thay vì `defaultLandingRoute` (`/student/dashboard`).
 
 ---
 

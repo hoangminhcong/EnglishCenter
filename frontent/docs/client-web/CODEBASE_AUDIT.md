@@ -1,6 +1,6 @@
 # BÁO CÁO KIỂM KÊ MÃ NGUỒN & PHÂN TÍCH ĐỒ THỊ PHỤ THUỘC (CODEBASE AUDIT)
 
-- **Dự án:** English Center (`d:\Web\english-center-mini`)
+- **Dự án:** English Center (`frontent`)
 - **Điểm khởi phát phân tích (Entry Point):** `src/main.tsx` -> `src/app/App.tsx` -> `src/app/router.tsx`
 - **Phương pháp:** Quét toàn bộ cây thư mục `src/` bằng trình phân tích đồ thị import tĩnh (`import` / `export ... from` / `lazy(() => import(...))`), đối chiếu với Git working tree (không tự động commit/push).
 

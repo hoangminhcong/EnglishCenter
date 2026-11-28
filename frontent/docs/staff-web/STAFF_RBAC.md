@@ -23,7 +23,7 @@ Hệ thống hỗ trợ linh hoạt cả mô hình tách riêng **Nhân sự (`H
 ## 2. QUY TẮC KIỂM SOÁT TRUY CẬP 3 LỚP
 
 1. **Lớp Điều hướng (`StaffSidebar`):**
-   - Đọc tập trung từ [`navigation.config.ts`](file:///d:/Web/english-center-mini/apps/staff-web/src/services/permissions/navigation.config.ts).
+   - Đọc tập trung từ [`navigation.config.ts`](../../apps/staff-web/src/services/permissions/navigation.config.ts).
    - Ẩn hoàn toàn các mục menu mà `hasPermission(user, item.requiredPermission)` trả về `false`.
    - Không hiển thị các menu nghiệp vụ rỗng chưa có đặc tả của các vai trò nhân sự khác.
 2. **Lớp Định tuyến (`AuthGuard` + `PermissionGuard`):**

@@ -1,4 +1,4 @@
-> **[CŨ – CẦN ĐỐI CHIẾU]** Tài liệu này ghi nhận khung khởi tạo ban đầu của `apps/staff-web` ở giai đoạn chuyển đổi Monorepo. Vui lòng xem bộ 8 tài liệu kiến trúc & đặc tả hoàn chỉnh mới nhất tại [`docs/staff-web/STAFF_ARCHITECTURE.md`](file:///d:/Web/english-center-mini/docs/staff-web/STAFF_ARCHITECTURE.md) và [`docs/staff-web/ADMIN_FEATURE_SPECIFICATION.md`](file:///d:/Web/english-center-mini/docs/staff-web/ADMIN_FEATURE_SPECIFICATION.md).
+> **[CŨ – CẦN ĐỐI CHIẾU]** Tài liệu này ghi nhận khung khởi tạo ban đầu của `apps/staff-web` ở giai đoạn chuyển đổi Monorepo. Vui lòng xem bộ 8 tài liệu kiến trúc & đặc tả hoàn chỉnh mới nhất tại [`docs/staff-web/STAFF_ARCHITECTURE.md`](../staff-web/STAFF_ARCHITECTURE.md) và [`docs/staff-web/ADMIN_FEATURE_SPECIFICATION.md`](../staff-web/ADMIN_FEATURE_SPECIFICATION.md).
 
 ---
 

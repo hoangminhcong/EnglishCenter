@@ -21,7 +21,7 @@ Tài liệu này tổng hợp trạng thái sẵn sàng của toàn bộ Monorep
 
 1. **Bước 1 – Khởi tạo ứng dụng NestJS & Prisma tại `apps/backend/`:**
    - Thêm `"apps/backend"` vào mảng `"workspaces"` trong `package.json` gốc.
-   - Thiết lập Prisma Schema ánh xạ đúng 6 miền thực thể trong [`DATA_MODEL.md`](file:///d:/Web/english-center-mini/docs/data-model/DATA_MODEL.md).
+   - Thiết lập Prisma Schema ánh xạ đúng 6 miền thực thể trong [`DATA_MODEL.md`](../data-model/DATA_MODEL.md).
 2. **Bước 2 – Triển khai Core Auth, RBAC Guard & Danh mục gốc:**
    - Hoàn thiện `/api/v1/auth/*`, `/api/v1/staff/auth/*`, `/api/v1/public/branches`, `/api/v1/public/courses`, `/api/v1/public/schedules`.
 3. **Bước 3 – Triển khai Nghiệp vụ Tuyển sinh, Đào tạo & Kế toán:**

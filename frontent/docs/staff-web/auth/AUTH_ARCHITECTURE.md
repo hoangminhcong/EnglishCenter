@@ -26,10 +26,10 @@ flowchart TD
 | Hạng mục | Trạng thái hiện tại | Nơi chịu trách nhiệm |
 | :--- | :---: | :--- |
 | Giao diện Đăng nhập (`AuthPage`, `StaffLoginPage`) | **Đã triển khai** | Frontend (`client-web` & `staff-web`) – Không có dropdown chọn Role hay Portal |
-| `Fixed Role & Permission Registry` | **Đã triển khai** | Định nghĩa cố định tại [`permissions.config.ts`](file:///d:/Web/english-center-mini/apps/staff-web/src/services/permissions/permissions.config.ts), Admin không thể chỉnh sửa |
-| `PortalResolver` & Allowlist URL | **Đã triển khai** | [`staff-web/.../portalResolver.ts`](file:///d:/Web/english-center-mini/apps/staff-web/src/services/portal/portalResolver.ts) & [`client-web/.../portalResolver.ts`](file:///d:/Web/english-center-mini/apps/client-web/src/services/portal/portalResolver.ts) |
+| `Fixed Role & Permission Registry` | **Đã triển khai** | Định nghĩa cố định tại [`permissions.config.ts`](../../../apps/staff-web/src/services/permissions/permissions.config.ts), Admin không thể chỉnh sửa |
+| `PortalResolver` & Allowlist URL | **Đã triển khai** | [`staff-web/.../portalResolver.ts`](../../../apps/staff-web/src/services/portal/portalResolver.ts) & [`client-web/.../portalResolver.ts`](../../../apps/client-web/src/services/portal/portalResolver.ts) |
 | Xác thực mật khẩu & cấp phiên hiện tại | **Mock (Development)** | `mockAuthAdapter` dùng băm một chiều `SHA-256` với mật khẩu riêng từng tài khoản mẫu |
-| `httpAuthAdapter` (`/api/v1/auth/*`) | **Đã chuẩn bị Adapter (Chưa có Backend)** | [`httpAuthAdapter.ts`](file:///d:/Web/english-center-mini/apps/staff-web/src/features/auth/adapters/httpAuthAdapter.ts) |
+| `httpAuthAdapter` (`/api/v1/auth/*`) | **Đã chuẩn bị Adapter (Chưa có Backend)** | [`httpAuthAdapter.ts`](../../../apps/staff-web/src/features/auth/adapters/httpAuthAdapter.ts) |
 | Băm mật khẩu `Argon2id/bcrypt`, ký Session/Cookie, kiểm tra Scope trên SQL | **Cần Backend triển khai** | Máy chủ Backend Node.js (Chưa triển khai trong phạm vi nhiệm vụ này) |
 
 ---

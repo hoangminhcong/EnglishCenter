@@ -7,7 +7,7 @@ Tài liệu này rà soát toàn bộ hệ thống định kiểu (Styling) củ
 ## 1. KIỂM KÊ CÁC FILE STYLESHEET TRONG DỰ ÁN
 
 Kết quả quét toàn bộ thư mục `src/` xác nhận dự án **chỉ có duy nhất 1 file CSS**:
-- **[index.css](file:///d:/Web/english-center-mini/src/index.css)** (`108` dòng) — Không có bất kỳ file `.module.css`, `.scss` hay `App.css` thừa nào từ template Vite mặc định gây ghi đè ngầm.
+- **[index.css](../../apps/client-web/src/index.css)** (`108` dòng) — Không có bất kỳ file `.module.css`, `.scss` hay `App.css` thừa nào từ template Vite mặc định gây ghi đè ngầm.
 
 ### Phân tích cấu trúc `src/index.css`:
 1. **`@import "tailwindcss";` (Tailwind CSS v4):** Không phát sinh xung đột reset CSS.

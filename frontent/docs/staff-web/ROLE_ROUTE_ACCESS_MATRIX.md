@@ -2,9 +2,9 @@
 
 ## 1. Quy tắc Điều hướng Sau Đăng nhập (`Post-Login Landing Resolution`)
 
-Hàm `resolveStaffDefaultHomePath(session)` tại [`permissions.config.ts`](file:///d:/Web/english-center-mini/apps/staff-web/src/services/permissions/permissions.config.ts) quyết định trang đích hoàn toàn dựa trên `permissions`:
+Hàm `resolveStaffDefaultHomePath(session)` tại [`permissions.config.ts`](../../apps/staff-web/src/services/permissions/permissions.config.ts) quyết định trang đích hoàn toàn dựa trên `permissions`:
 
-1. Nếu `session` rỗng hoặc `session.permissions.length === 0` -> Điều hướng tới `/no-access` ([`NoAccessPage`](file:///d:/Web/english-center-mini/apps/staff-web/src/components/StaffSystemPages.tsx)).
+1. Nếu `session` rỗng hoặc `session.permissions.length === 0` -> Điều hướng tới `/no-access` ([`NoAccessPage`](../../apps/staff-web/src/components/StaffSystemPages.tsx)).
 2. Kiểm tra `session.defaultLandingRoute` (trả về từ phiên `/auth/me`): nếu route này tồn tại trong danh mục điều hướng và tài khoản có đủ `requiredPermissions` của route đó -> Điều hướng tới `defaultLandingRoute`.
 3. Nếu không có `defaultLandingRoute` hoặc không đủ quyền cho `defaultLandingRoute` -> Duyệt danh sách chuẩn ưu tiên và chọn route đầu tiên mà tài khoản có đủ `requiredPermissions`.
 4. Nếu không khớp bất kỳ route giao diện nào -> Điều hướng về `/no-access` (tuyệt đối không gây vòng lặp redirect vô hạn).
@@ -24,7 +24,7 @@ Hàm `resolveStaffDefaultHomePath(session)` tại [`permissions.config.ts`](file
 
 ## 2. Bảng Ánh xạ Toàn bộ Route, Menu Sidebar & Quyền Bảo vệ (`PermissionGuard`)
 
-Nguồn cấu hình chuẩn: [`navigation.config.ts`](file:///d:/Web/english-center-mini/apps/staff-web/src/services/permissions/navigation.config.ts) và [`router/index.tsx`](file:///d:/Web/english-center-mini/apps/staff-web/src/app/router/index.tsx).
+Nguồn cấu hình chuẩn: [`navigation.config.ts`](../../apps/staff-web/src/services/permissions/navigation.config.ts) và [`router/index.tsx`](../../apps/staff-web/src/app/router/index.tsx).
 
 ### 2.1. Nhóm Quản trị Hệ thống, CMS, Học liệu & Giám sát
 | Đường dẫn (`Path`) | Hiển thị trên Sidebar | Nhóm Menu | Mã quyền bắt buộc (`requiredPermissions`) | Hành vi khi gõ URL trực tiếp mà thiếu quyền |

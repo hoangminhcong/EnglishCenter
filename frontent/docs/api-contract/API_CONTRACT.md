@@ -1,8 +1,8 @@
 # HỢP ĐỒNG GIAO TIẾP API THỐNG NHẤT (`API_CONTRACT`)
 
 - **Nguồn chuẩn kỹ thuật (Single Source of Contract):**
-  - OpenAPI 3.1: [`packages/contracts/openapi/openapi.yaml`](file:///d:/Web/english-center-mini/packages/contracts/openapi/openapi.yaml)
-  - TypeScript DTOs & Error Codes: [`packages/contracts/src/index.ts`](file:///d:/Web/english-center-mini/packages/contracts/src/index.ts)
+  - OpenAPI 3.1: [`packages/contracts/openapi/openapi.yaml`](../../packages/contracts/openapi/openapi.yaml)
+  - TypeScript DTOs & Error Codes: [`packages/contracts/src/index.ts`](../../packages/contracts/src/index.ts)
 - **Tiền tố gốc (Base URL):** `/api/v1`
 
 ---

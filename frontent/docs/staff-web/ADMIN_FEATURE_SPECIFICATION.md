@@ -29,7 +29,7 @@ Tài liệu này mô tả chi tiết các phân hệ đã triển khai hoàn ch�
 
 ## 2. CÁC HIỆU CHỈNH NGHIỆP VỤ QUAN TRỌNG SO VỚI FILE HTML THAM KHẢO
 
-1. **Chuẩn hóa thương hiệu 100% sang `English Center`:** Loại bỏ hoàn toàn tên `HMC Management` / `HMC TOEIC` và thông tin liên hệ giả định trong file HTML mẫu; đồng bộ với [`center-info.ts`](file:///d:/Web/english-center-mini/apps/client-web/src/config/center-info.ts).
+1. **Chuẩn hóa thương hiệu 100% sang `English Center`:** Loại bỏ hoàn toàn tên `HMC Management` / `HMC TOEIC` và thông tin liên hệ giả định trong file HTML mẫu; đồng bộ với [`center-info.ts`](../../apps/client-web/src/config/center-info.ts).
 2. **Loại bỏ ô nhập tay "Đã thu / Chưa thu" ở Học phí (`/tuition`):** Tuân thủ ranh giới nghiệp vụ — Admin chỉ ban hành `TuitionPolicy`; giao dịch thu tiền, phiếu thu và công nợ thuộc phân hệ `ACCOUNTANT`.
 3. **Chế độ Giám sát Chỉ xem ở Đào tạo (`/training`):** Tách bạch Lớp đào tạo thực tế và Lịch khai giảng Website; không đặt nhầm thao tác xếp lớp/bảo lưu (của Giáo vụ) hay điểm danh/chấm bài (của Giảng viên) vào Admin.
 4. **Khóa cứng 3 slug danh mục Study Zone:** File HTML mẫu có thêm mục `Reading`, trong khi `client-web` định tuyến cố định 3 danh mục `grammar`, `vocabulary`, `listening`. `staff-web` khóa cứng 3 slug này để không làm gãy URL của học viên.
