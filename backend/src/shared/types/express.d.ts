@@ -1,4 +1,4 @@
-import type { AccountStatus, AccountType, RoleCode } from '../constants/roles.js';
+import type { AccountStatus, AccountType, RoleCode } from '../constants/roles.ts';
 
 export type AuthenticatedContext = {
   sessionId: string;

@@ -1,5 +1,5 @@
-import pg from 'pg';
-import type { Pool as PgPool, PoolClient as PgPoolClient, PoolConfig } from 'pg';
+import pg from '../../node_modules/@types/pg/index.js';
+import type { Pool as PgPool, PoolClient as PgPoolClient, PoolConfig } from '../../node_modules/@types/pg/index.js';
 import { databaseUrl } from './env.js';
 
 export type DbPool = PgPool;
